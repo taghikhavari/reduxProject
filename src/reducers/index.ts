@@ -12,12 +12,12 @@ interface todo {
 	completed: boolean;
 }
 
-interface IInitialState {
+export interface IState {
 	visibilityFilter: EVisibilityFilters;
 	todos: todo[];
 }
 
-const initialState: IInitialState = {
+const initialState: IState = {
 	visibilityFilter: EVisibilityFilters.SHOW_ALL,
 	todos: [
 		{
@@ -37,7 +37,7 @@ function todoReducer(state: todo[] = [], action: todoActionTypes) {
 			return [
 				...state,
 				{
-					text: action.type,
+					text: action.text,
 					completed: false
 				}
 			];
@@ -51,6 +51,8 @@ function todoReducer(state: todo[] = [], action: todoActionTypes) {
 				}
 				return todo;
 			});
+		default:
+			return state;
 	}
 }
 
@@ -67,6 +69,6 @@ function visibilityFilterReducer(
 }
 
 export const todoAppReducer = combineReducers({
-  visibilityFilterReducer,
-  todoReducer
-})
+	visibilityFilter: visibilityFilterReducer,
+	todos: todoReducer
+});
