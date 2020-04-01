@@ -19,3 +19,11 @@ export const thunkSendMessage = (
 function exampleAPI() {
 	return Promise.resolve("Async Chat Bot");
 }
+
+// To reduce repetition, you might want to define a reusable AppThunk type once, in your store file, and then use that type whenever you write a thunk:
+export type AppThunk<ReturnType = void> = ThunkAction<
+	ReturnType,
+	RootState,
+	unknown,
+	Action<string>
+>;
