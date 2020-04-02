@@ -3,6 +3,7 @@ import { sendMessage } from "./store/chat/actions";
 import { RootState } from "./store";
 import { ThunkAction } from "redux-thunk";
 
+// this file shows how we can add type to async actions
 export const thunkSendMessage = (
 	message: string
 ): ThunkAction<void, RootState, unknown, Action<string>> => async dispatach => {
