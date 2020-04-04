@@ -1,1 +1,1 @@
-##Test Project to learn redux from [redux website](https://redux.js.org/)
+##Test Project to learn redux from [redux Docs](https://redux.js.org/)
